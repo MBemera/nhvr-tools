@@ -78,7 +78,7 @@ class NHVR:
         return await client.search_vehicle_registration(plate_number)
 
     async def search(self, query: str) -> dict:
-        from nhvr_mcp.scraper import is_nhvr_url, scrape_nhvr_page
+        from nhvr_mcp.scraper import scrape_nhvr_page
 
         normalized = query.lower().strip()
         topic_map = {

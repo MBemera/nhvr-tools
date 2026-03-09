@@ -13,7 +13,6 @@ import shutil
 import subprocess
 import sys
 import textwrap
-import time
 
 # ── Colours (disabled on Windows unless WT is present) ────────────────────────
 USE_COLOR = sys.stdout.isatty() and (
@@ -213,7 +212,7 @@ def configure_claude_desktop(api_key: str | None) -> None:
         config: dict = {}
         if os.path.exists(config_path):
             try:
-                with open(config_path, "r") as f:
+                with open(config_path) as f:
                     config = json.load(f)
                 ok("Found existing Claude config.")
             except (json.JSONDecodeError, OSError):
@@ -257,7 +256,8 @@ def configure_claude_desktop(api_key: str | None) -> None:
 def _print_manual_config(server_entry: dict) -> None:
     print()
     print("  Add the following to your Claude Desktop config")
-    print(f"  inside the {cyan('\"mcpServers\"')} section:")
+    mcp_label = cyan('"mcpServers"')
+    print(f"  inside the {mcp_label} section:")
     print()
     snippet = json.dumps({"nhvr-tools": server_entry}, indent=2)
     for line in snippet.splitlines():
@@ -308,7 +308,7 @@ def finish() -> None:
     print("  What to do next:")
     print()
     print(f"  1. {bold('Restart Claude Desktop')} to load NHVR Tools")
-    print(f"  2. Ask Claude about heavy vehicle regulations, e.g.:")
+    print("  2. Ask Claude about heavy vehicle regulations, e.g.:")
     print(f'     {cyan("What are the fatigue rules for standard hours?")}')
     print(f'     {cyan("What are the mass limits for a semi-trailer?")}')
     print(f'     {cyan("Explain chain of responsibility duties")}')

@@ -131,7 +131,10 @@ SPEED_LIMITS = {
     "default": {
         "heavy_vehicle_speed_limit": "100 km/h (general maximum for heavy vehicles unless otherwise signed).",
         "school_zones": "40 km/h (during school zone hours).",
-        "note": "Speed limits are primarily governed by state/territory road rules. The HVNL applies to heavy vehicle speed compliance and enforcement.",
+        "note": (
+            "Speed limits are primarily governed by state/territory road rules. "
+            "The HVNL applies to heavy vehicle speed compliance and enforcement."
+        ),
     },
     "speed_limiter": {
         "requirement": "Heavy vehicles with a GVM >12 tonnes must have a speed limiter set to 100 km/h.",
@@ -146,7 +149,10 @@ COR_DUTIES = {
         "chain is accountable."
     ),
     "primary_duty": {
-        "description": "Each party in the CoR must ensure, so far as is reasonably practicable, the safety of their transport activities.",
+        "description": (
+            "Each party in the CoR must ensure, so far as is reasonably practicable, "
+            "the safety of their transport activities."
+        ),
         "parties": [
             "Employer",
             "Prime contractor",
@@ -204,7 +210,10 @@ PERMIT_TYPES = {
     "overview": "Access permits allow vehicles that exceed standard limits to travel on approved routes.",
     "class_1": {
         "summary": "Class 1 heavy vehicle – special-purpose vehicle (e.g. crane, agricultural).",
-        "note": "Conditions set by the permit; may include route restrictions, time-of-travel, and escort requirements.",
+        "note": (
+            "Conditions set by the permit; may include route restrictions, "
+            "time-of-travel, and escort requirements."
+        ),
     },
     "class_2": {
         "summary": "Class 2 heavy vehicle – a general access vehicle operating under a notice.",
