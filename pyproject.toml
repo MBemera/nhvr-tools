@@ -1,0 +1,89 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "nhvr-tools"
+version = "0.1.0"
+description = "Python SDK, MCP server, and CLI for Australian heavy vehicle compliance — fatigue rules, mass limits, dimensions, chain of responsibility, and more."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Matthew Bemera" }]
+keywords = [
+  "nhvr",
+  "heavy-vehicle",
+  "compliance",
+  "fatigue",
+  "mass-limits",
+  "chain-of-responsibility",
+  "mcp",
+  "australia",
+  "transport",
+  "sdk",
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Typing :: Typed",
+]
+
+dependencies = [
+  "httpx>=0.24",
+  "beautifulsoup4>=4.12",
+]
+
+[project.optional-dependencies]
+mcp = [
+  "fastmcp",
+  "pydantic>=2.0",
+]
+cli = [
+  "click>=8.0",
+]
+scraper = [
+  "playwright>=1.40",
+]
+all = [
+  "nhvr-tools[mcp,cli,scraper]",
+]
+dev = [
+  "nhvr-tools[all]",
+  "pytest>=7.0",
+  "pytest-asyncio>=0.21",
+  "ruff>=0.4",
+  "build",
+  "twine",
+]
+
+[project.scripts]
+nhvr = "nhvr_mcp.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/MBemera/nhvr-tools"
+Documentation = "https://github.com/MBemera/nhvr-tools#readme"
+Repository = "https://github.com/MBemera/nhvr-tools"
+Issues = "https://github.com/MBemera/nhvr-tools/issues"
+Changelog = "https://github.com/MBemera/nhvr-tools/blob/main/CHANGELOG.md"
+
+[tool.hatch.build.targets.wheel]
+packages = ["nhvr_mcp"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+asyncio_mode = "auto"
+
+[tool.ruff]
+target-version = "py310"
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
