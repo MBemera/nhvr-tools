@@ -27,7 +27,16 @@ def is_nhvr_url(url: str) -> bool:
 
 
 async def fetch_page_http(url: str) -> str:
-    async with httpx.AsyncClient(timeout=30) as client:
+    headers = {
+        "User-Agent": (
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/120.0.0.0 Safari/537.36"
+        ),
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept-Language": "en-AU,en;q=0.9",
+    }
+    async with httpx.AsyncClient(timeout=30, headers=headers) as client:
         response = await client.get(url)
         response.raise_for_status()
         return response.text
@@ -35,10 +44,25 @@ async def fetch_page_http(url: str) -> str:
 
 async def fetch_page_playwright(url: str) -> str:
     async with async_playwright() as playwright:
-        browser = await playwright.chromium.launch()
-        page = await browser.new_page()
-        await page.goto(url, wait_until="networkidle")
+        browser = await playwright.chromium.launch(
+            headless=True,
+            args=[
+                "--disable-blink-features=AutomationControlled",
+            ],
+        )
+        context = await browser.new_context(
+            user_agent=(
+                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) "
+                "Chrome/120.0.0.0 Safari/537.36"
+            ),
+            viewport={"width": 1280, "height": 720},
+            java_script_enabled=True,
+        )
+        page = await context.new_page()
+        await page.goto(url, wait_until="networkidle", timeout=30000)
         html = await page.content()
+        await context.close()
         await browser.close()
         return html
 
