@@ -3,8 +3,14 @@
 > Python SDK, MCP server, and CLI for Australian heavy vehicle compliance data.
 
 [![PyPI version](https://img.shields.io/pypi/v/nhvr-tools.svg)](https://pypi.org/project/nhvr-tools/)
+[![PyPI downloads](https://img.shields.io/pypi/dm/nhvr-tools.svg)](https://pypi.org/project/nhvr-tools/)
 [![Python](https://img.shields.io/pypi/pyversions/nhvr-tools.svg)](https://pypi.org/project/nhvr-tools/)
+[![CI](https://github.com/MBemera/nhvr-tools/actions/workflows/ci.yml/badge.svg)](https://github.com/MBemera/nhvr-tools/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
+```bash
+pip install nhvr-tools
+```
 
 NHVR Tools gives you instant access to Australian heavy vehicle compliance information — fatigue rules, mass limits, dimension limits, breach categories, chain of responsibility duties, accreditation, permits, and more.
 
