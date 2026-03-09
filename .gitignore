@@ -52,6 +52,9 @@ Thumbs.db
 dist/
 *.egg-info/
 
+# Local tools
+.radsim/
+
 # Project specific
 *.log
 .env.local
