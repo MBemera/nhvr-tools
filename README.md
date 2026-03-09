@@ -2,9 +2,9 @@
 
 > Python SDK, MCP server, and CLI for Australian heavy vehicle compliance data.
 
-[![PyPI version](https://img.shields.io/pypi/v/nhvr-tools.svg)](https://pypi.org/project/nhvr-tools/)
-[![PyPI downloads](https://img.shields.io/pypi/dm/nhvr-tools.svg)](https://pypi.org/project/nhvr-tools/)
-[![Python](https://img.shields.io/pypi/pyversions/nhvr-tools.svg)](https://pypi.org/project/nhvr-tools/)
+[![PyPI version](https://img.shields.io/pypi/v/nhvr-tools?cacheSeconds=60)](https://pypi.org/project/nhvr-tools/)
+[![PyPI downloads](https://img.shields.io/pypi/dm/nhvr-tools?cacheSeconds=60)](https://pypi.org/project/nhvr-tools/)
+[![Python](https://img.shields.io/pypi/pyversions/nhvr-tools?cacheSeconds=60)](https://pypi.org/project/nhvr-tools/)
 [![CI](https://github.com/MBemera/nhvr-tools/actions/workflows/ci.yml/badge.svg)](https://github.com/MBemera/nhvr-tools/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
